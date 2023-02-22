@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+//all of your imports
+import React from 'react';
+import Main from './views/Main';
+import {Routes, Route} from 'react-router-dom'
+import ProductDetails from './views/ProductDetails';
+import Update from './views/Update';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      {/* the routes div allows for you to call the routes connected to the
+      main components and whatever your individual show component is */}
+      <Routes>
+        <Route element={<Main />} path="/" />
+        <Route element={<ProductDetails />} path="/:id" />
+        <Route element={<Update/>} path="/productmanager/:id/edit"/> 
+      </Routes>
     </div>
   );
 }
-
 export default App;
+
